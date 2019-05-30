@@ -1,0 +1,22 @@
+[Stats]
+<<<<<<< HEAD
+EditorSecs=32081
+DesignerSecs=171
+InspectorSecs=4326
+CompileSecs=336565
+OtherSecs=19134
+StartTime=2019/5/15 11:28:15
+RealKeys=0
+EffectiveKeys=0
+DebugSecs=1109
+=======
+EditorSecs=7255
+DesignerSecs=243
+InspectorSecs=852
+CompileSecs=61241
+OtherSecs=1449
+StartTime=2019/5/24 8:11:22
+RealKeys=0
+EffectiveKeys=0
+DebugSecs=1
+>>>>>>> parent of 757f2da... Revert "2019=05-24 afternoon"

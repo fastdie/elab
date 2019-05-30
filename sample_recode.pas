@@ -1,0 +1,547 @@
+unit sample_recode;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics,
+  Controls, Forms, uniGUITypes, uniGUIAbstractClasses,
+  uniGUIClasses, uniGUIFrame, uniGUIBaseClasses, uniPanel, uniButton, uniMemo,
+  uniLabel, uniGroupBox, uniPageControl, uniMultiItem, uniComboBox,
+  uniDateTimePicker, uniEdit;
+
+type
+  Tsample_record_frame = class(TUniFrame)
+    UniPanel1: TUniPanel;
+    UniPageControl1: TUniPageControl;
+    UniTabSheet1: TUniTabSheet;
+    UniTabSheet2: TUniTabSheet;
+    UniTabSheet3: TUniTabSheet;
+    UniGroupBox1: TUniGroupBox;
+    UniLabel2: TUniLabel;
+    UniLabel3: TUniLabel;
+    UniLabel4: TUniLabel;
+    UniLabel5: TUniLabel;
+    UniLabel1: TUniLabel;
+    UniLabel6: TUniLabel;
+    UniLabel7: TUniLabel;
+    UniLabel8: TUniLabel;
+    UniLabel9: TUniLabel;
+    UniLabel10: TUniLabel;
+    UniMemo1: TUniMemo;
+    UniButton1: TUniButton;
+    UniButton2: TUniButton;
+    UniButton3: TUniButton;
+    UniEdit1: TUniEdit;
+    UniEdit2: TUniEdit;
+    UniEdit3: TUniEdit;
+    UniEdit4: TUniEdit;
+    UniDateTimePicker1: TUniDateTimePicker;
+    UniComboBox1: TUniComboBox;
+    UniEdit5: TUniEdit;
+    UniComboBox2: TUniComboBox;
+    UniEdit6: TUniEdit;
+    UniDateTimePicker2: TUniDateTimePicker;
+    UniGroupBox2: TUniGroupBox;
+    UniLabel11: TUniLabel;
+    UniLabel12: TUniLabel;
+    UniLabel13: TUniLabel;
+    UniLabel14: TUniLabel;
+    UniLabel15: TUniLabel;
+    UniLabel16: TUniLabel;
+    UniLabel17: TUniLabel;
+    UniLabel18: TUniLabel;
+    UniLabel19: TUniLabel;
+    UniLabel20: TUniLabel;
+    UniMemo2: TUniMemo;
+    UniButton4: TUniButton;
+    UniButton5: TUniButton;
+    UniButton6: TUniButton;
+    UniEdit7: TUniEdit;
+    UniEdit8: TUniEdit;
+    UniEdit9: TUniEdit;
+    UniEdit10: TUniEdit;
+    UniDateTimePicker3: TUniDateTimePicker;
+    UniComboBox3: TUniComboBox;
+    UniEdit11: TUniEdit;
+    UniComboBox4: TUniComboBox;
+    UniEdit12: TUniEdit;
+    UniDateTimePicker4: TUniDateTimePicker;
+    UniGroupBox3: TUniGroupBox;
+    UniEdit13: TUniEdit;
+    UniGroupBox4: TUniGroupBox;
+    UniMemo3: TUniMemo;
+    UniEdit14: TUniEdit;
+    UniLabel21: TUniLabel;
+    UniEdit15: TUniEdit;
+    UniLabel22: TUniLabel;
+    UniLabel23: TUniLabel;
+    UniEdit16: TUniEdit;
+    procedure UniFrameCreate(Sender: TObject);
+    procedure UniButton2Click(Sender: TObject);
+    procedure UniEdit13KeyPress(Sender: TObject; var Key: Char);
+    procedure UniButton3Click(Sender: TObject);
+    procedure UniButton5Click(Sender: TObject);
+    procedure UniEdit14KeyPress(Sender: TObject; var Key: Char);
+    procedure UniButton6Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    procedure input_clear1;
+    procedure input_clear2;
+    { Public declarations }
+  end;
+
+implementation
+
+{$R *.dfm}
+
+uses MainModule;
+
+// 自定义过程，重置输入栏目
+//
+procedure Tsample_record_frame.input_clear1;
+begin
+  UniEdit1.Clear;
+  UniEdit2.Text:='/';
+  UniEdit3.Clear;
+  UniEdit4.Clear;
+  UniEdit5.Clear;
+  UniEdit6.Clear;
+  UniEdit15.Clear;
+  UniComboBox1.Text:='';
+  UniComboBox2.Text:='';
+  UniMemo1.Clear;
+  UniMemo1.Lines.Add('备注信息');
+end;
+
+procedure Tsample_record_frame.input_clear2;
+begin
+  UniEdit7.Clear;
+  UniEdit8.Text:='/';
+  UniEdit9.Clear;
+  UniEdit10.Clear;
+  UniEdit11.Clear;
+  UniEdit12.Clear;
+  UniEdit14.Clear;
+  UniEdit14.Clear;
+  UniComboBox3.Text:='';
+  UniComboBox4.Text:='';
+  UniMemo2.Clear;
+  UniMemo2.Lines.Add('备注信息');
+end;
+//
+// 自定义过程结束
+
+
+
+procedure Tsample_record_frame.UniButton2Click(Sender: TObject);  // 保存记录
+var
+  // 标签序号，样品类别，样品名称，委托人，委托人电话，封样人
+  label_sn,sample_kind,sample_name,client_name,client_phone,sealed_person:string;
+  // 实验室内部编号，ELAB编号，工作组，检测状态，备注
+  inner_sn,elab_sn,work_dept,insp_status,remark:string;
+  // 样品单位
+  sample_quantify:string;
+  // 样品数量
+  sample_amount:integer;
+  // 标签状态，报告状态，发票状态
+  label_status,report_status,invoice_status:boolean;
+  // 封样日期，接样日期
+  sealed_date,receive_date:string;
+  // 录入错误标志
+  error_flag:boolean;
+begin
+  error_flag:=false;
+  label_sn:=MainModule.dept_code + FormatDateTime('yyyyMMddhhmmss',now());
+  label_status:=true;
+  sample_kind:='法检委托';
+  insp_status:='已接样';
+  report_status:=false;
+  invoice_status:=false;
+  remark:=UniMemo1.Text;
+  sealed_date:=FormatDateTime('yyyy-MM-dd',UniDateTimePicker1.DateTime);
+  receive_date:=FormatDateTime('yyyy-MM-dd',UniDateTimePicker2.DateTime);
+  //
+  if (Trim(UniEdit1.Text)<>'') and (length(Trim(UniEdit1.Text))<=24) then  // 样品名称
+  begin
+    sample_name:=Trim(UniEdit1.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniEdit2.Text)<>'') and (length(Trim(UniEdit2.Text))<=24) then  // ELAB编号
+  begin
+    elab_sn:=Trim(UniEdit2.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniEdit3.Text)<>'') and (length(Trim(UniEdit3.Text))<=10) then  // 委托人
+  begin
+    client_name:=Trim(UniEdit3.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniEdit4.Text)<>'') and (length(Trim(UniEdit4.Text))<=13) then  // 委托人联系电话
+  begin
+    client_phone:=Trim(UniEdit4.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniComboBox1.Text)<>'') and (length(Trim(UniComboBox1.Text))<=16) then  // 样品单位
+  begin
+    sample_quantify:=Trim(UniComboBox1.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if Trim(UniEdit5.Text)<>'' then  // 样品数量
+  begin
+    try
+      sample_amount:=strtoint(Trim(UniEdit5.Text));
+    except
+      error_flag:=true;
+    end;
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniComboBox2.Text)<>'') and (length(Trim(UniComboBox2.Text))<=10) then  // 工作组
+  begin
+    work_dept:=Trim(UniComboBox2.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniEdit6.Text)<>'') and (length(Trim(UniEdit6.Text))<=16) then  // 内部编号
+  begin
+    inner_sn:=Trim(UniEdit6.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniEdit15.Text)<>'') and (length(Trim(UniEdit15.Text))<=10) then  // 封样人
+  begin
+    sealed_person:=Trim(UniEdit15.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if error_flag then
+  begin
+    ShowMessageN('样品信息输入有误，请重新核对');
+  end
+  else begin
+    try
+      with UniMainModule.exec_query do
+      begin
+        Close;
+        SQL.Clear;
+        SQL.Add('insert into sample_table(label_sn,label_status,sample_kind,');
+        SQL.Add('sample_name,client_name,client_phone,sealed_person,');
+        SQL.Add('sealed_date,sample_quantify,sample_amount,inner_sn,');
+        SQL.Add('elab_sn,work_dept,insp_status,report_status,invoice_status,');
+        SQL.Add('remark,receive_date)');
+        SQL.Add('values(:label_sn,:label_status,:sample_kind,');
+        SQL.Add(':sample_name,:client_name,:client_phone,:sealed_person,');
+        SQL.Add(':sealed_date,:sample_quantify,:sample_amount,:inner_sn,');
+        SQL.Add(':elab_sn,:work_dept,:insp_status,:report_status,:invoice_status,');
+        SQL.Add(':remark,:receive_date)');
+        ParamByName('label_sn').Value:=label_sn;
+        ParamByName('label_status').Value:=label_status;
+        ParamByName('sample_kind').Value:=sample_kind;
+        ParamByName('sample_name').Value:=sample_name;
+        ParamByName('client_name').Value:=client_name;
+        ParamByName('client_phone').Value:=client_phone;
+        ParamByName('sealed_person').Value:=sealed_person;
+        ParamByName('sealed_date').Value:=sealed_date;
+        ParamByName('sample_quantify').Value:=sample_quantify;
+        ParamByName('sample_amount').Value:=sample_amount;
+        ParamByName('inner_sn').Value:=inner_sn;
+        ParamByName('elab_sn').Value:=elab_sn;
+        ParamByName('work_dept').Value:=work_dept;
+        ParamByName('insp_status').Value:=insp_status;
+        ParamByName('report_status').Value:=report_status;
+        ParamByName('invoice_status').Value:=invoice_status;
+        ParamByName('remark').Value:=remark;
+        ParamByName('receive_date').Value:=receive_date;
+        Execsql;
+      end;
+    except
+      ShowMessageN('保存样品信息过程中出现问题，请联系管理员');
+    end;
+    input_clear1;  // 调用过程
+  end;
+end;
+
+procedure Tsample_record_frame.UniButton3Click(Sender: TObject);
+begin
+  input_clear1;
+end;
+
+procedure Tsample_record_frame.UniButton5Click(Sender: TObject);
+var
+  // 标签序号，样品类别，样品名称，委托人，委托人电话，封样人
+  label_sn,sample_kind,sample_name,client_name,client_phone,sealed_person:string;
+  // 实验室内部编号，客户委托编号，工作组，检测状态，备注
+  inner_sn,elab_sn,work_dept,insp_status,remark:string;
+  // 样品单位
+  sample_quantify:string;
+  // 样品数量
+  sample_amount:integer;
+  // 标签状态，报告状态，发票状态
+  label_status,report_status,invoice_status:boolean;
+  // 封样日期，接样日期
+  sealed_date,receive_date:string;
+  // 录入错误标志
+  error_flag,label_flag:boolean;
+begin
+  error_flag:=false;
+  sample_kind:='社会委托';
+  insp_status:='已接样';
+  report_status:=false;
+  invoice_status:=false;
+  remark:=UniMemo1.Text;
+  sealed_date:=FormatDateTime('yyyy-MM-dd',UniDateTimePicker1.DateTime);
+  receive_date:=FormatDateTime('yyyy-MM-dd',UniDateTimePicker2.DateTime);
+  //
+  if (Trim(UniEdit7.Text)<>'') and (length(Trim(UniEdit7.Text))<=24) then  // 样品名称
+  begin
+    sample_name:=Trim(UniEdit7.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniEdit8.Text)<>'') and (length(Trim(UniEdit8.Text))<=24) then  // 委托送检编号
+  begin
+    elab_sn:=Trim(UniEdit8.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniEdit9.Text)<>'') and (length(Trim(UniEdit9.Text))<=10) then  // 委托人
+  begin
+    client_name:=Trim(UniEdit9.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniEdit10.Text)<>'') and (length(Trim(UniEdit10.Text))<=13) then  // 委托人联系电话
+  begin
+    client_phone:=Trim(UniEdit10.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniComboBox3.Text)<>'') and (length(Trim(UniComboBox3.Text))<=16) then  // 样品单位
+  begin
+    sample_quantify:=Trim(UniComboBox3.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if Trim(UniEdit11.Text)<>'' then  // 样品数量
+  begin
+    try
+      sample_amount:=strtoint(Trim(UniEdit11.Text));
+    except
+      error_flag:=true;
+    end;
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniComboBox4.Text)<>'') and (length(Trim(UniComboBox4.Text))<=10) then  // 工作组
+  begin
+    work_dept:=Trim(UniComboBox4.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniEdit12.Text)<>'') and (length(Trim(UniEdit12.Text))<=16) then  // 内部编号
+  begin
+    inner_sn:=Trim(UniEdit12.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniEdit14.Text)<>'') and (length(Trim(UniEdit14.Text))<=24) then  // 标签序列号
+  begin
+    label_sn:=Trim(UniEdit14.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if error_flag then
+  begin
+    ShowMessageN('样品信息输入有误，请重新核对');
+  end
+  else begin
+    with UniMainModule.exec_query do
+    begin
+      //
+    end;
+  end;
+end;
+
+
+procedure Tsample_record_frame.UniButton6Click(Sender: TObject);
+begin
+  //
+end;
+
+procedure Tsample_record_frame.UniEdit13KeyPress(Sender: TObject;  // 扫条码或者手动输入样品信息进行查询
+  var Key: Char);
+var
+  i:integer;
+  inner_sn,elab_sn,sample_name,sample_kind,sample_quantify,sample_amount:string;
+  insp_status,report_status,receive_date:string;
+  input_str:string;
+begin
+  if key = #13 then  // 按下回车键
+  begin
+    UniMemo3.Clear;
+    input_str:=Trim(UniEdit13.Text);
+    with UniMainModule.exec_query do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Add('select * from sample_table');
+      SQL.Add('where label_sn=:input_str1');
+      SQL.Add('or inner_sn=:input_str2');
+      SQL.Add('or elab_sn=:input_str3');
+      ParamByName('input_str1').Value:=input_str;
+      ParamByName('input_str2').Value:=input_str;
+      ParamByName('input_str3').Value:=input_str;
+      Open;
+      if RecordCount>0 then
+      begin
+        for i := 0 to RecordCount-1 do
+        begin
+          inner_sn:=FieldByName('inner_sn').AsString;
+          elab_sn:=FieldByName('elab_sn').AsString;
+          sample_name:=FieldByName('sample_name').AsString;
+          sample_kind:=FieldByName('sample_kind').AsString;
+          sample_quantify:=FieldByName('sample_quantify').AsString;
+          sample_amount:=FieldByName('sample_amount').AsString;
+          insp_status:=FieldByName('insp_status').AsString;
+          report_status:=FieldByName('report_status').AsString;
+          if report_status='False' then
+          begin
+            report_status:='未签发';
+          end
+          else begin
+            report_status:='已签发';
+          end;
+          receive_date:=FieldByName('receive_date').AsString;
+          //
+          UniMemo3.Lines.Add('实验室内部编号:" '+inner_sn+' "; ELAB编号:" '+elab_sn+' "; '+sample_kind);
+          UniMemo3.Lines.Add('样品名称：'+sample_name+', 规格： '+sample_quantify+' * '+sample_amount);
+          UniMemo3.Lines.Add('接样日期：'+receive_date);
+          UniMemo3.Lines.Add('检测状态：'+insp_status+'; '+'检测报告：'+report_status);
+          //
+          Next;
+        end;
+      end
+      else begin
+        UniMemo3.Lines.Add('未找到该标签对应的样品信息');
+      end;
+      UniEdit13.Text:='';
+    end;
+  end;
+end;
+
+procedure Tsample_record_frame.UniEdit14KeyPress(Sender: TObject;
+  var Key: Char);
+var
+  i:integer;
+begin
+  if (key = #13) and (Trim(UniEdit14.Text)<>'') then
+  begin
+    with UniMainModule.exec_query do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Add('select label_sn from sample_table');
+      SQL.Add('where label_sn=:input_str');
+      ParamByName('input_str').Value:=Trim(UniEdit14.Text);
+      Open;
+      First;
+      if RecordCount>0 then
+      begin
+        //
+      end;
+    end;
+  end;
+end;
+
+procedure Tsample_record_frame.UniFrameCreate(Sender: TObject);  // FRAME初始化
+var
+  dept_name,quan_name:string;
+  i:integer;
+begin
+  UniDateTimePicker1.DateTime:=date();
+  UniDateTimePicker2.DateTime:=date();
+  UniDateTimePicker3.DateTime:=date();
+  UniDateTimePicker4.DateTime:=date();
+  //
+  with UniMainModule.exec_query do  // 加载部门
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('select dept_name from dept_table');
+    SQL.Add('where valid=:valid');
+    SQL.Add('order by dept_number');
+    ParamByName('valid').Value:='1';
+    Open;
+    First;
+    for i := 0 to RecordCount-1 do
+    begin
+      dept_name:=FieldByName('dept_name').AsString;
+      UniComboBox2.Items.Add(dept_name);
+      UniComboBox4.Items.Add(dept_name);
+      Next;
+    end;
+  end;
+  //
+  with UniMainModule.exec_query do  // 加载单位
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('select quan_name from quantify_table');
+    SQL.Add('where valid=:valid');
+    SQL.Add('order by quan_sn');
+    ParamByName('valid').Value:='1';
+    Open;
+    First;
+    for i := 0 to RecordCount-1 do
+    begin
+      quan_name:=FieldByName('quan_name').AsString;
+      UniComboBox1.Items.Add(quan_name);
+      UniComboBox3.Items.Add(quan_name);
+      Next;
+    end;
+  end;
+end;
+
+end.

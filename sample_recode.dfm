@@ -1,0 +1,592 @@
+object sample_record_frame: Tsample_record_frame
+  Left = 0
+  Top = 0
+  Width = 1000
+  Height = 618
+  Hint = #26679#21697#30331#35760
+  OnCreate = UniFrameCreate
+  Font.Height = -13
+  TabOrder = 0
+  ParentFont = False
+  object UniPanel1: TUniPanel
+    Left = 0
+    Top = 0
+    Width = 1000
+    Height = 618
+    Hint = ''
+    Align = alClient
+    TabOrder = 0
+    Caption = ''
+    object UniPageControl1: TUniPageControl
+      Left = 1
+      Top = 1
+      Width = 998
+      Height = 616
+      Hint = ''
+      ActivePage = UniTabSheet2
+      Align = alClient
+      TabOrder = 1
+      object UniTabSheet1: TUniTabSheet
+        Hint = ''
+        Caption = #20869#37096#22996#25176
+        object UniGroupBox1: TUniGroupBox
+          Left = 20
+          Top = 20
+          Width = 1045
+          Height = 501
+          Hint = ''
+          Caption = #35831#36755#20837#26679#21697#22522#26412#20449#24687
+          TabOrder = 0
+          object UniLabel2: TUniLabel
+            Left = 180
+            Top = 40
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = 'ELAB'#32534#21495#65306
+            TabOrder = 1
+          end
+          object UniLabel3: TUniLabel
+            Left = 340
+            Top = 40
+            Width = 48
+            Height = 13
+            Hint = ''
+            Caption = #22996#25176#20154#65306
+            TabOrder = 2
+          end
+          object UniLabel4: TUniLabel
+            Left = 500
+            Top = 40
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #32852#31995#30005#35805#65306
+            TabOrder = 3
+          end
+          object UniLabel5: TUniLabel
+            Left = 660
+            Top = 40
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #23553#26679#26085#26399#65306
+            TabOrder = 4
+          end
+          object UniLabel1: TUniLabel
+            Left = 20
+            Top = 40
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #26679#21697#21517#31216#65306
+            TabOrder = 5
+          end
+          object UniLabel6: TUniLabel
+            Left = 20
+            Top = 130
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #26679#21697#21333#20301#65306
+            TabOrder = 6
+          end
+          object UniLabel7: TUniLabel
+            Left = 180
+            Top = 130
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #26679#21697#25968#37327#65306
+            TabOrder = 7
+          end
+          object UniLabel8: TUniLabel
+            Left = 340
+            Top = 130
+            Width = 72
+            Height = 13
+            Hint = ''
+            Caption = #23545#24212#24037#20316#32452#65306
+            TabOrder = 8
+          end
+          object UniLabel9: TUniLabel
+            Left = 500
+            Top = 130
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #20869#37096#32534#21495#65306
+            TabOrder = 9
+          end
+          object UniLabel10: TUniLabel
+            Left = 660
+            Top = 130
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #25509#26679#26085#26399#65306
+            TabOrder = 10
+          end
+          object UniMemo1: TUniMemo
+            Left = 20
+            Top = 232
+            Width = 760
+            Height = 121
+            Hint = ''
+            Lines.Strings = (
+              #22791#27880#20449#24687)
+            TabOrder = 11
+          end
+          object UniButton1: TUniButton
+            Left = 340
+            Top = 420
+            Width = 120
+            Height = 25
+            Hint = ''
+            Visible = False
+            Caption = #22797#21046#19978#26465#35760#24405
+            TabOrder = 12
+          end
+          object UniButton2: TUniButton
+            Left = 500
+            Top = 420
+            Width = 120
+            Height = 25
+            Hint = ''
+            Caption = #20445#23384
+            TabOrder = 13
+            OnClick = UniButton2Click
+          end
+          object UniButton3: TUniButton
+            Left = 660
+            Top = 420
+            Width = 120
+            Height = 25
+            Hint = ''
+            Caption = #37325#32622
+            TabOrder = 14
+            OnClick = UniButton3Click
+          end
+          object UniEdit1: TUniEdit
+            Left = 20
+            Top = 80
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 15
+          end
+          object UniEdit2: TUniEdit
+            Left = 180
+            Top = 80
+            Width = 120
+            Hint = ''
+            Text = '/'
+            TabOrder = 16
+          end
+          object UniEdit3: TUniEdit
+            Left = 340
+            Top = 80
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 17
+          end
+          object UniEdit4: TUniEdit
+            Left = 500
+            Top = 80
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 18
+          end
+          object UniDateTimePicker1: TUniDateTimePicker
+            Left = 660
+            Top = 80
+            Width = 120
+            Hint = ''
+            DateTime = 43601.000000000000000000
+            DateFormat = 'yyyy-MM-dd'
+            TimeFormat = 'HH:mm:ss'
+            TabOrder = 19
+          end
+          object UniComboBox1: TUniComboBox
+            Left = 20
+            Top = 170
+            Width = 120
+            Height = 24
+            Hint = ''
+            Text = ''
+            TabOrder = 20
+            IconItems = <>
+          end
+          object UniEdit5: TUniEdit
+            Left = 180
+            Top = 170
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 21
+          end
+          object UniComboBox2: TUniComboBox
+            Left = 340
+            Top = 170
+            Width = 120
+            Height = 24
+            Hint = ''
+            Text = ''
+            TabOrder = 22
+            IconItems = <>
+          end
+          object UniEdit6: TUniEdit
+            Left = 500
+            Top = 170
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 23
+          end
+          object UniDateTimePicker2: TUniDateTimePicker
+            Left = 660
+            Top = 170
+            Width = 120
+            Hint = ''
+            DateTime = 43601.000000000000000000
+            DateFormat = 'yyyy-MM-dd'
+            TimeFormat = 'HH:mm:ss'
+            TabOrder = 24
+          end
+          object UniEdit15: TUniEdit
+            Left = 820
+            Top = 80
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 25
+          end
+          object UniLabel22: TUniLabel
+            Left = 820
+            Top = 40
+            Width = 48
+            Height = 13
+            Hint = ''
+            Caption = #23553#26679#20154#65306
+            TabOrder = 26
+          end
+        end
+      end
+      object UniTabSheet2: TUniTabSheet
+        Hint = ''
+        Caption = #31038#20250#22996#25176
+        object UniGroupBox2: TUniGroupBox
+          Left = 20
+          Top = 20
+          Width = 960
+          Height = 501
+          Hint = ''
+          Caption = #35831#36755#20837#26679#21697#22522#26412#20449#24687
+          TabOrder = 0
+          object UniLabel11: TUniLabel
+            Left = 340
+            Top = 40
+            Width = 84
+            Height = 13
+            Hint = ''
+            Caption = #22996#25176#36865#26816#32534#21495#65306
+            TabOrder = 1
+          end
+          object UniLabel12: TUniLabel
+            Left = 500
+            Top = 40
+            Width = 48
+            Height = 13
+            Hint = ''
+            Caption = #22996#25176#20154#65306
+            TabOrder = 2
+          end
+          object UniLabel13: TUniLabel
+            Left = 660
+            Top = 40
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #32852#31995#30005#35805#65306
+            TabOrder = 3
+          end
+          object UniLabel14: TUniLabel
+            Left = 820
+            Top = 130
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #22996#25176#26085#26399#65306
+            TabOrder = 4
+          end
+          object UniLabel15: TUniLabel
+            Left = 180
+            Top = 40
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #26679#21697#21517#31216#65306
+            TabOrder = 5
+          end
+          object UniLabel16: TUniLabel
+            Left = 20
+            Top = 130
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #26679#21697#21333#20301#65306
+            TabOrder = 6
+          end
+          object UniLabel17: TUniLabel
+            Left = 180
+            Top = 130
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #26679#21697#25968#37327#65306
+            TabOrder = 7
+          end
+          object UniLabel18: TUniLabel
+            Left = 340
+            Top = 130
+            Width = 72
+            Height = 13
+            Hint = ''
+            Caption = #23545#24212#24037#20316#32452#65306
+            TabOrder = 8
+          end
+          object UniLabel19: TUniLabel
+            Left = 500
+            Top = 130
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #20869#37096#32534#21495#65306
+            TabOrder = 9
+          end
+          object UniLabel20: TUniLabel
+            Left = 660
+            Top = 130
+            Width = 60
+            Height = 13
+            Hint = ''
+            Caption = #25509#26679#26085#26399#65306
+            TabOrder = 10
+          end
+          object UniMemo2: TUniMemo
+            Left = 20
+            Top = 232
+            Width = 760
+            Height = 121
+            Hint = ''
+            Lines.Strings = (
+              #22791#27880#20449#24687)
+            TabOrder = 11
+          end
+          object UniButton4: TUniButton
+            Left = 340
+            Top = 420
+            Width = 120
+            Height = 25
+            Hint = ''
+            Caption = #22797#21046#19978#26465#35760#24405
+            TabOrder = 12
+          end
+          object UniButton5: TUniButton
+            Left = 500
+            Top = 420
+            Width = 120
+            Height = 25
+            Hint = ''
+            Caption = #20445#23384
+            TabOrder = 13
+            OnClick = UniButton5Click
+          end
+          object UniButton6: TUniButton
+            Left = 660
+            Top = 420
+            Width = 120
+            Height = 25
+            Hint = ''
+            Caption = #37325#32622
+            TabOrder = 14
+            OnClick = UniButton6Click
+          end
+          object UniEdit7: TUniEdit
+            Left = 180
+            Top = 80
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 15
+          end
+          object UniEdit8: TUniEdit
+            Left = 340
+            Top = 80
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 16
+          end
+          object UniEdit9: TUniEdit
+            Left = 500
+            Top = 80
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 17
+          end
+          object UniEdit10: TUniEdit
+            Left = 660
+            Top = 80
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 18
+          end
+          object UniDateTimePicker3: TUniDateTimePicker
+            Left = 820
+            Top = 170
+            Width = 120
+            Hint = ''
+            DateTime = 43601.000000000000000000
+            DateFormat = 'yyyy-MM-dd'
+            TimeFormat = 'HH:mm:ss'
+            TabOrder = 19
+          end
+          object UniComboBox3: TUniComboBox
+            Left = 20
+            Top = 170
+            Width = 120
+            Height = 24
+            Hint = ''
+            Text = ''
+            TabOrder = 20
+            IconItems = <>
+          end
+          object UniEdit11: TUniEdit
+            Left = 180
+            Top = 170
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 21
+          end
+          object UniComboBox4: TUniComboBox
+            Left = 340
+            Top = 170
+            Width = 120
+            Height = 24
+            Hint = ''
+            Text = ''
+            TabOrder = 22
+            IconItems = <>
+          end
+          object UniEdit12: TUniEdit
+            Left = 500
+            Top = 170
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 23
+          end
+          object UniDateTimePicker4: TUniDateTimePicker
+            Left = 660
+            Top = 170
+            Width = 120
+            Hint = ''
+            DateTime = 43601.000000000000000000
+            DateFormat = 'yyyy-MM-dd'
+            TimeFormat = 'HH:mm:ss'
+            TabOrder = 24
+          end
+          object UniEdit14: TUniEdit
+            Left = 20
+            Top = 80
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 25
+            OnKeyPress = UniEdit14KeyPress
+          end
+          object UniLabel21: TUniLabel
+            Left = 20
+            Top = 40
+            Width = 72
+            Height = 13
+            Hint = ''
+            Caption = #26631#31614#24207#21015#21495#65306
+            TabOrder = 26
+          end
+          object UniLabel23: TUniLabel
+            Left = 820
+            Top = 40
+            Width = 48
+            Height = 13
+            Hint = ''
+            Caption = #23553#26679#20154#65306
+            TabOrder = 27
+          end
+          object UniEdit16: TUniEdit
+            Left = 820
+            Top = 80
+            Width = 120
+            Hint = ''
+            Text = ''
+            TabOrder = 28
+          end
+        end
+      end
+      object UniTabSheet3: TUniTabSheet
+        Hint = ''
+        Caption = #26679#21697#20449#24687#26597#35810
+        object UniGroupBox3: TUniGroupBox
+          Left = 20
+          Top = 20
+          Width = 960
+          Height = 120
+          Hint = ''
+          Caption = #25195#26465#30721#25110#25163#24037#36755#20837#26679#21697#20449#24687#65292#25903#25345#26465#30721#12289'ELAB'#32534#21495#12289#22996#25176#36865#26816#32534#21495#25110#23454#39564#23460#20869#37096#32534#21495
+          TabOrder = 0
+          object UniEdit13: TUniEdit
+            Left = 2
+            Top = 15
+            Width = 956
+            Height = 103
+            Hint = ''
+            Alignment = taCenter
+            Text = ''
+            ParentFont = False
+            Font.Height = -80
+            Align = alClient
+            TabOrder = 1
+            OnKeyPress = UniEdit13KeyPress
+          end
+        end
+        object UniGroupBox4: TUniGroupBox
+          Left = 20
+          Top = 156
+          Width = 960
+          Height = 397
+          Hint = ''
+          Caption = #26597#35810#32467#26524#65306
+          TabOrder = 1
+          object UniMemo3: TUniMemo
+            Left = 2
+            Top = 15
+            Width = 956
+            Height = 380
+            Hint = ''
+            ParentFont = False
+            Font.Height = -13
+            Align = alClient
+            ReadOnly = True
+            TabOrder = 1
+          end
+        end
+      end
+    end
+  end
+end
