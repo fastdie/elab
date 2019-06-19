@@ -6,8 +6,8 @@
         <MainSource>elab.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Release</Config>
-        <Platform Condition="'$(Platform)'==''">Win64</Platform>
-        <TargetedPlatforms>2</TargetedPlatforms>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
@@ -133,11 +133,12 @@
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <UsePackages>true</UsePackages>
+        <DCC_ExeOutput>C:\compile\elab\</DCC_ExeOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <DCC_UnitSearchPath>C:\Program Files (x86)\FMSoft\Framework\uniGUI\Dcu64\Delphi2022;C:\Program Files (x86)\Devart\UniDAC for RAD Studio 10.3\Lib\Win64;C:\Program Files (x86)\FastReports\LibD26x64;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>C:\Program Files (x86)\FMSoft\Framework\uniGUI\Dcu\Delphi2022;C:\Program Files (x86)\FMSoft\Framework\uniGUI\Dcu64\Delphi2022;C:\Program Files (x86)\Devart\UniDAC for RAD Studio 10.3\Lib\Win64;C:\Program Files (x86)\FastReports\LibD26x64;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
@@ -716,8 +717,8 @@
             </Deployment>
             <Platforms>
                 <Platform value="Android">False</Platform>
-                <Platform value="Win32">False</Platform>
-                <Platform value="Win64">True</Platform>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>

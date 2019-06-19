@@ -9,7 +9,7 @@ object UniFormPrint: TUniFormPrint
   MonitoredKeys.Keys = <>
   Font.Height = -13
   OnBeforeShow = UniFormBeforeShow
-  PixelsPerInch = 96
+  PixelsPerInch = 120
   TextHeight = 16
   object UniPDFFrame1: TUniPDFFrame
     Left = 0
@@ -1067,7 +1067,7 @@ object UniFormPrint: TUniFormPrint
   end
   object UniConnection1: TUniConnection
     ProviderName = 'MySQL'
-    Database = 'elab'
+    Database = 'test_elab'
     Username = 'fastdie'
     Server = '111.59.173.10'
     Connected = True
