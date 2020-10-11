@@ -12,7 +12,6 @@ uses
   sample_status in 'sample_status.pas' {sample_status_frame: TUniFrame},
   department in 'department.pas' {dept_frame: TUniFrame},
   user in 'user.pas' {user_frame: TUniFrame},
-  photo in 'photo.pas' {photo_frame: TUniFrame},
   pdfprint in 'pdfprint.pas' {UniFormPrint: TUniForm};
 
 {$R *.res}

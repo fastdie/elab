@@ -1,2 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<BorlandProject/>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/10/07 17:38:36.000.011,D:\elab-master\photo.pas=</Transaction>
+  </Transactions>  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="department.pas"/>
+    <File Path="department.dfm"/>
+    <File Path="login.pas"/>
+    <File Path="login.dfm"/>
+    <File Path="Main.pas"/>
+    <File Path="Main.dfm"/>
+    <File Path="MainModule.pas"/>
+    <File Path="MainModule.dfm"/>
+    <File Path="pdfprint.pas"/>
+    <File Path="pdfprint.dfm"/>
+    <File Path="print_label.pas"/>
+    <File Path="print_label.dfm"/>
+    <File Path="public_func.pas"/>
+    <File Path="sample_recode.pas"/>
+    <File Path="sample_recode.dfm"/>
+    <File Path="sample_status.pas"/>
+    <File Path="sample_status.dfm"/>
+    <File Path="ServerModule.pas"/>
+    <File Path="ServerModule.dfm"/>
+    <File Path="user.pas"/>
+    <File Path="user.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

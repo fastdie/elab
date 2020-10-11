@@ -21,7 +21,7 @@ object UniFormPrint: TUniFormPrint
     TabOrder = 0
   end
   object frxReport1: TfrxReport
-    Version = '6.2.1'
+    Version = '6.7.5'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection]
@@ -114,6 +114,7 @@ object UniFormPrint: TUniFormPrint
       TopMargin = 10.000000000000000000
       BottomMargin = 10.000000000000000000
       Frame.Typ = []
+      MirrorMode = []
       object ReportTitle1: TfrxReportTitle
         FillType = ftBrush
         Frame.Typ = []
@@ -742,6 +743,7 @@ object UniFormPrint: TUniFormPrint
           Font.Height = -12
           Font.Name = 'Arial'
           Font.Style = []
+          ColorBar = clBlack
         end
       end
       object PageHeader1: TfrxPageHeader
@@ -1058,6 +1060,8 @@ object UniFormPrint: TUniFormPrint
     CenterWindow = False
     PrintScaling = False
     PdfA = False
+    PDFStandard = psNone
+    PDFVersion = pv17
     Left = 528
     Top = 104
   end
@@ -1069,7 +1073,7 @@ object UniFormPrint: TUniFormPrint
     ProviderName = 'MySQL'
     Database = 'elab'
     Username = 'fastdie'
-    Server = '111.59.173.10'
+    Server = '111.59.182.238'
     Connected = True
     LoginPrompt = False
     Left = 112
@@ -1080,7 +1084,6 @@ object UniFormPrint: TUniFormPrint
     Connection = UniConnection1
     SQL.Strings = (
       'select * from sample_table')
-    Active = True
     Left = 200
     Top = 48
   end

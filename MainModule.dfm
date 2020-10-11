@@ -9,7 +9,7 @@ object UniMainModule: TUniMainModule
     Port = 3306
     Database = 'elab'
     Username = 'fastdie'
-    Server = '111.59.173.10'
+    Server = '111.59.182.238'
     Connected = True
     LoginPrompt = False
     Left = 48
@@ -41,7 +41,6 @@ object UniMainModule: TUniMainModule
     Connection = UniConnection1
     SQL.Strings = (
       'select * from dept_table')
-    Active = True
     Left = 528
     Top = 120
   end
@@ -51,7 +50,6 @@ object UniMainModule: TUniMainModule
       'select * from sample_store_table'
       'where sample_status='#39#24050#20837#24211#39
       'order by inner_sn')
-    Active = True
     Left = 528
     Top = 200
   end
@@ -82,7 +80,6 @@ object UniMainModule: TUniMainModule
     SQL.Strings = (
       'select * from sample_table'
       'order by label_sn desc')
-    Active = True
     Left = 528
     Top = 360
   end
@@ -95,7 +92,6 @@ object UniMainModule: TUniMainModule
     Connection = UniConnection1
     SQL.Strings = (
       'select * from sample_insp_table')
-    Active = True
     Left = 528
     Top = 424
   end
@@ -108,7 +104,6 @@ object UniMainModule: TUniMainModule
     Connection = UniConnection1
     SQL.Strings = (
       'select * from sample_insp_table')
-    Active = True
     Left = 528
     Top = 488
   end
