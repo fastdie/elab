@@ -320,7 +320,6 @@ begin
   error_flag:=false;
   sample_kind:='社会委托';
   insp_status:='已接样';
-  label_sn:=MainModule.dept_code + FormatDateTime('yyyyMMddhhmmss',now());
   label_status:=true;
   report_status:=false;
   invoice_status:=false;
@@ -392,6 +391,14 @@ begin
   if (Trim(UniEdit12.Text)<>'') and (length(Trim(UniEdit12.Text))<=16) then  // 内部编号
   begin
     inner_sn:=Trim(UniEdit12.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
+  if (Trim(UniEdit14.Text)<>'') and (length(Trim(UniEdit14.Text))<=24) then  // 标签序列号
+  begin
+    label_sn:=Trim(UniEdit14.Text);
   end
   else begin
     error_flag:=true;

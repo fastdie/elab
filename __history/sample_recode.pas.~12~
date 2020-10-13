@@ -139,7 +139,7 @@ begin
   //
 end;
 
-procedure Tsample_record_frame.UniButton2Click(Sender: TObject);  // 法检保存记录
+procedure Tsample_record_frame.UniButton2Click(Sender: TObject);  // 保存记录
 var
   // 标签序号，样品类别，样品名称，委托人，委托人电话，封样人
   label_sn,sample_kind,sample_name,client_name,client_phone,sealed_person:string;
@@ -320,7 +320,6 @@ begin
   error_flag:=false;
   sample_kind:='社会委托';
   insp_status:='已接样';
-  label_sn:=MainModule.dept_code + FormatDateTime('yyyyMMddhhmmss',now());
   label_status:=true;
   report_status:=false;
   invoice_status:=false;
@@ -397,6 +396,14 @@ begin
     error_flag:=true;
   end;
   //
+  if (Trim(UniEdit14.Text)<>'') and (length(Trim(UniEdit14.Text))<=24) then  // 标签序列号
+  begin
+    label_sn:=Trim(UniEdit14.Text);
+  end
+  else begin
+    error_flag:=true;
+  end;
+  //
   if (Trim(UniEdit16.Text)<>'') and (length(Trim(UniEdit16.Text))<=10) then  // 封样人
   begin
     sealed_person:=Trim(UniEdit16.Text);
@@ -421,12 +428,12 @@ begin
           SQL.Add('sample_name,client_name,client_phone,sealed_person,');
           SQL.Add('sealed_date,sample_quantify,sample_amount,inner_sn,');
           SQL.Add('elab_sn,work_dept,insp_status,report_status,invoice_status,');
-          SQL.Add('remark,receive_date,client_date)');
+          SQL.Add('remark,receive_date,)');
           SQL.Add('values(:label_sn,:label_status,:sample_kind,');
           SQL.Add(':sample_name,:client_name,:client_phone,:sealed_person,');
           SQL.Add(':sealed_date,:sample_quantify,:sample_amount,:inner_sn,');
           SQL.Add(':elab_sn,:work_dept,:insp_status,:report_status,:invoice_status,');
-          SQL.Add(':remark,:receive_date,:client_date)');
+          SQL.Add(':remark,:receive_date)');
           ParamByName('label_sn').Value:=label_sn;
           ParamByName('label_status').Value:=label_status;
           ParamByName('sample_kind').Value:=sample_kind;
@@ -445,13 +452,11 @@ begin
           ParamByName('invoice_status').Value:=invoice_status;
           ParamByName('remark').Value:=remark;
           ParamByName('receive_date').Value:=receive_date;
-          ParamByName('client_date').Value:=client_date;
           Execsql;
         end;
       except
-        ShowMessageN('保存样品信息过程中出现问题，请联系管理员');
+        //
       end;
-      input_clear2;  // 调用过程
     end;
   end;
 end;

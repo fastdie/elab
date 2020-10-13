@@ -23,7 +23,7 @@ object sample_record_frame: Tsample_record_frame
       Width = 998
       Height = 616
       Hint = ''
-      ActivePage = UniTabSheet2
+      ActivePage = UniTabSheet1
       Align = alClient
       TabOrder = 1
       object UniTabSheet1: TUniTabSheet
@@ -146,7 +146,6 @@ object sample_record_frame: Tsample_record_frame
             Visible = False
             Caption = #22797#21046#19978#26465#35760#24405
             TabOrder = 12
-            OnClick = UniButton1Click
           end
           object UniButton2: TUniButton
             Left = 500
@@ -392,7 +391,6 @@ object sample_record_frame: Tsample_record_frame
             Width = 120
             Height = 25
             Hint = ''
-            Visible = False
             Caption = #22797#21046#19978#26465#35760#24405
             TabOrder = 12
             OnClick = UniButton4Click
